@@ -1,0 +1,3 @@
+[submodule "OcvARCocos2D/Libraries/ocv_ar"]
+	path = OcvARCocos2D/Libraries/ocv_ar
+	url = https://github.com/htw-inka/ocv_ar.git

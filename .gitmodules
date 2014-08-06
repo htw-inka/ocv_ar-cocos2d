@@ -1,3 +1,6 @@
 [submodule "OcvARCocos2D/Libraries/ocv_ar"]
 	path = OcvARCocos2D/Libraries/ocv_ar
 	url = https://github.com/htw-inka/ocv_ar.git
+[submodule "OcvARCocos2D/Libraries/cocos2d"]
+	path = OcvARCocos2D/Libraries/cocos2d
+	url = https://github.com/cocos2d/cocos2d-iphone.git

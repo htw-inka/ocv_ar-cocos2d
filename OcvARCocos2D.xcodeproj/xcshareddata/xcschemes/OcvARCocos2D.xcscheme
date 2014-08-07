@@ -28,6 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2817C50F19927D7400A19634"
+               BuildableName = "ObjectiveChipmunkTests.xctest"
+               BlueprintName = "ObjectiveChipmunkTests"
+               ReferencedContainer = "container:OcvARCocos2D.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

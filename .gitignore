@@ -1,0 +1,22 @@
+# exclude object files
+*.o
+
+# exclude opencv lib
+opencv-ios/
+
+#vim noise:
+*.swp
+
+#osx noise:
+.DS_Store
+
+#xcode noise:
+*.pbxuser
+*.perspective
+*.perspectivev3
+ 
+*.mode1v3
+*.mode2v3
+
+**/*.xcodeproj/xcuserdata/**
+**/*.xcodeproj/project.xcworkspace/xcuserdata/**

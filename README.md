@@ -14,6 +14,7 @@
 * built-in user interaction -- overlay objects in 3D scene can be selected via touch
 * easy integration with Cocos2D -- no customization of Cocos2D's original source code necessary
 * easy setup -- an XCode project of a showcase application is provided as basis for your application
+* example project allows to see the results of the intermediate marker detection steps
 
 ## Supported (tested) OS versions and devices
 
@@ -35,6 +36,10 @@ git clone --recursive git@github.com:htw-inka/ocv_ar-examples.git
 This repository contains a basic example application that can be compiled using the provided XCode project file.
 
 **Important:** It is necessary to download [OpenCV for iOS](http://sourceforge.net/projects/opencvlibrary/files/opencv-ios/) and copy *opencv2.framework* to the directory *OcvARCocos2D/Libraries/opencv2-ios/*. Otherwise, the project will not compile!
+
+### Configuration
+
+The ocv_ar tracker can be configured in `ARCtrl.h`. The setting is important `MARKER_REAL_SIZE_M` as it describes the side length of one physical marker in meters.
 
 ### Documentation
 
@@ -59,3 +64,23 @@ A camera view is displayed beneath Cocos2D's OpenGL view that is used as graphic
 For user interaction, OpenGL picking via ray tracing has been implemented so that the correct object in the 3D scene is selected upon touch.
 
 ## Screenshots
+
+#### Detected marker with sprite overlay
+
+![Detected marker with sprite overlay](http://www.mkonrad.net/img/other/ocvar-cocos2d-screens01.png)
+
+#### Display of intermediate marker detection step -- thresholding
+
+![Display of intermediate marker detection step -- Thresholding](http://www.mkonrad.net/img/other/ocvar-cocos2d-screens02.png)
+
+#### Display of intermediate marker detection step -- detected marker view
+
+![Display of intermediate marker detection step -- Thresholding](http://www.mkonrad.net/img/other/ocvar-cocos2d-screens03.png)
+
+#### Several detected markers with sprite overlay
+
+![Several detected markers with sprite overlay](http://www.mkonrad.net/img/other/ocvar-cocos2d-screens04.png)
+
+#### User interaction -- one selected marker
+
+![User interaction -- one selected marker](http://www.mkonrad.net/img/other/ocvar-cocos2d-screens05.png)

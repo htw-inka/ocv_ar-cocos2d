@@ -25,18 +25,24 @@
 
 ## Usage
 
+### Compile and run the example project
+
+This repository contains a basic example application that can be compiled using the provided XCode project file.
+
+**Important:** It is necessary to download [OpenCV for iOS](http://sourceforge.net/projects/opencvlibrary/files/opencv-ios/) and copy *opencv2.framework* to the directory *OcvARCocos2D/Libraries/opencv2-ios/*. Otherwise, the project will not compile!
+
+### Documentation
+
+The provided source code is well documented so that you can easily use this project as basis for your own AR application.
+
 ### Markers
 
 By default, [ArUco](http://sourceforge.net/projects/aruco/)-style 7x7 code markers are supported. An image with some markers can be downloaded from the [ocv_ar-examples repository](https://github.com/htw-inka/ocv_ar-examples/blob/master/assets/marker-7x7-aruco-style/board.png). You can set up ocv_ar to use custom (binary) markers via template matching.
 
-### Example project and documentation
-
-This repository contains a basic example application that can be compiled using the provided XCode project file. The provided source code is well documented so that you can easily use this project as basis for your own AR application.
-
 ## Dependencies
 
 * ocv_ar
- * OpenCV
+ * OpenCV (tested with v2.4.9)
 * Cocos2D
  * Chipmunk
  * ObjectAL

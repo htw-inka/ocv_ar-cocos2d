@@ -5,38 +5,62 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1696D0AD-E915-407D-B23A-40521B13AB34</string>
+	<string>5DD0BEE7-0010-47B2-B7E7-41341D80B7CF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OcvARCocos2D</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2B1040D5-0A20-46A3-B93A-C4FAE573CA9B</key>
-		<string>ssh://github.com/htw-inka/ocv_ar-examples.git</string>
-		<key>7F5F0CF8-C65E-416D-9E8A-C5304A90FAF5</key>
-		<string>ssh://github.com/htw-inka/ocv_ar.git</string>
+		<key>346BC7C1-93FF-4007-AD66-70B3CDEEED5A</key>
+		<string>ssh://github.com/htw-inka/ocv_ar-cocos2d.git</string>
+		<key>755B940D-5FDC-4D0D-85F9-F9B2E69616E0</key>
+		<string>https://github.com/slembcke/Chipmunk2D.git</string>
+		<key>E42FE91A-414E-4C03-A66E-545909BDF8FD</key>
+		<string>https://github.com/cocos2d/cocos2d-iphone.git</string>
+		<key>F1EB1C32-9F5D-445E-87B1-557EE0A2F61C</key>
+		<string>https://github.com/htw-inka/ocv_ar.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>examples/ios/OcvARCocos2D/OcvARCocos2D.xcodeproj/project.xcworkspace</string>
+	<string>OcvARCocos2D.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2B1040D5-0A20-46A3-B93A-C4FAE573CA9B</key>
-		<string>../../../../..</string>
-		<key>7F5F0CF8-C65E-416D-9E8A-C5304A90FAF5</key>
-		<string>../../../../../ocv_ar</string>
+		<key>346BC7C1-93FF-4007-AD66-70B3CDEEED5A</key>
+		<string>../..</string>
+		<key>755B940D-5FDC-4D0D-85F9-F9B2E69616E0</key>
+		<string>../../OcvARCocos2D/Libraries/cocos2d/external/Chipmunk</string>
+		<key>E42FE91A-414E-4C03-A66E-545909BDF8FD</key>
+		<string>../../OcvARCocos2D/Libraries/cocos2d</string>
+		<key>F1EB1C32-9F5D-445E-87B1-557EE0A2F61C</key>
+		<string>../../OcvARCocos2D/Libraries/ocv_ar</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/htw-inka/ocv_ar-examples.git</string>
+	<string>ssh://github.com/htw-inka/ocv_ar-cocos2d.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2B1040D5-0A20-46A3-B93A-C4FAE573CA9B</string>
+	<string>346BC7C1-93FF-4007-AD66-70B3CDEEED5A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7F5F0CF8-C65E-416D-9E8A-C5304A90FAF5</string>
+			<string>755B940D-5FDC-4D0D-85F9-F9B2E69616E0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Chipmunk</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E42FE91A-414E-4C03-A66E-545909BDF8FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cocos2d</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F1EB1C32-9F5D-445E-87B1-557EE0A2F61C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ocv_ar</string>
 		</dict>
@@ -44,9 +68,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2B1040D5-0A20-46A3-B93A-C4FAE573CA9B</string>
+			<string>346BC7C1-93FF-4007-AD66-70B3CDEEED5A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ocv_ar-examples</string>
+			<string>ocv_ar-cocos2d</string>
 		</dict>
 	</array>
 </dict>

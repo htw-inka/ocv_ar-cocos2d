@@ -2,7 +2,8 @@
 *.o
 
 # exclude opencv lib
-opencv-ios/
+OcvARCocos2D/Libraries/opencv2-ios/opencv2.framework/
+
 
 #vim noise:
 *.swp

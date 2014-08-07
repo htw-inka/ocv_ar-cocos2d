@@ -59,7 +59,7 @@ By default, [ArUco](http://sourceforge.net/projects/aruco/)-style 7x7 code marke
 
 ## How does it work?
 
-A camera view is displayed beneath Cocos2D's OpenGL view that is used as graphics overlay. An OpenGL projection matri is calculated by ocv_ar (based on the device camera properties) and is used as custom projection matrix in Cocos2D. The estimanted 3D transformations from ocv_ar for the found markers are used by Cocos2D class extensions (mainly `CCNode` and `CCSprite` extension) for proper 3D display.
+A camera view is displayed beneath Cocos2D's OpenGL view that is used as graphics overlay. An OpenGL projection matrix is calculated by ocv_ar (based on the device camera properties) and is used as custom projection matrix in Cocos2D. The estimanted 3D transformations from ocv_ar for the found markers are used by Cocos2D class extensions (mainly `CCNode` and `CCSprite` extensions) for proper 3D display.
 
 For user interaction, OpenGL picking via ray tracing has been implemented so that the correct object in the 3D scene is selected upon touch.
 

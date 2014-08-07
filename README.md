@@ -17,11 +17,8 @@
 
 ## Supported (tested) OS versions and devices
 
-* iOS 6
-* iOS 7
-
-* iPad 2 
-* iPad 3
+* iOS 6, iOS 7
+* iPad 2, iPad 3
 
 ## Usage
 
@@ -43,7 +40,7 @@ By default, [ArUco](http://sourceforge.net/projects/aruco/)-style 7x7 code marke
 
 * ocv_ar
  * OpenCV (tested with v2.4.9)
-* Cocos2D
+* Cocos2D (submodule currently points to v3.1.1)
  * Chipmunk
  * ObjectAL
 

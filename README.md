@@ -1,10 +1,10 @@
-# ocv_ar-cocos2d - Mobile Augmented Reality Framework based on Cocos2D and ocv_ar
+# A Mobile Augmented Reality Framework based on Cocos2D and ocv_ar
 
 *Markus Konrad <konrad@htw-berlin.de>, August 2014*
 
 *INKA Research Group / Project MINERVA, HTW Berlin - http://inka.htw-berlin.de/inka/projekte/minerva/*
 
-This project represents a lightweight mobile marker-based augmented reality framework for iOS based on *[Cocos2D](http://www.cocos2d-swift.org/)* for 3D visualization and user interaction, and *[ocv_ar](https://github.com/htw-inka/ocv_ar)* for marker recognition and 3D pose estimation.
+*ocv_ar-cocos2d* represents a lightweight mobile marker-based augmented reality framework for iOS based on *[Cocos2D](http://www.cocos2d-swift.org/)* for 3D visualization and user interaction, and *[ocv_ar](https://github.com/htw-inka/ocv_ar)* for marker recognition and 3D pose estimation.
 
 ## Features
 

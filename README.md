@@ -22,6 +22,14 @@
 
 ## Usage
 
+### How to clone this repository
+
+Please note that all needed libraries (besides OpenCV) are included as submodules in this repository. Therefore, the following command needs to be used to clone the repo:
+
+```
+git clone --recursive git@github.com:htw-inka/ocv_ar-examples.git
+```
+
 ### Compile and run the example project
 
 This repository contains a basic example application that can be compiled using the provided XCode project file.

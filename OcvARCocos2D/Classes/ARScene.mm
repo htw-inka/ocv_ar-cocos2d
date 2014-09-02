@@ -24,6 +24,12 @@
  * Update <markerNode> and set its properties according to <markerObj>.
  */
 - (void)updateMarkerNode:(CCNodeAR *)markerNode withMarkerObj:(const ocv_ar::Marker *)markerObj;
+
+/**
+ * Generate a unique color from a marker <id>.
+ */
+-(CCColor *)colorFromId:(int)id;
+
 @end
 
 @implementation ARScene
@@ -115,6 +121,8 @@
     // use the cocos logo as sprite for a marker
     ARTouchableSprite *cocosLogo = [ARTouchableSprite spriteWithImageNamed:@"Icon.png"];
     
+    [cocosLogo setColor:[self colorFromId:markerId]];
+    
     // it is possible to apply transformations to a sprite in 3D:
     //    [cocosLogo setPosition:ccp(1.0f,1.0f)];
     //    [cocosLogo setRotationalSkewZ:45.0f];
@@ -134,6 +142,21 @@
 -(void)updateMarkerNode:(CCNodeAR *)markerNode withMarkerObj:(const ocv_ar::Marker *)markerObj {
     [markerNode setARTransformMatrix:markerObj->getPoseMatPtr()];   // determines the 3D transform
     [markerNode setAlive:YES];  // shows that this marker was updated lately
+}
+
+-(CCColor *)colorFromId:(int)id {
+    float idR = (float) ((id * id) % 1024);
+    float idG = (float) ((id * id * id) % 1024);
+    float idB = (float) ((id * id * id * id) % 1024);
+    
+    ccColor4F markerColor = {
+        idR / 1024.0f,
+        idG / 1024.0f,
+        idB / 1024.0f,
+        0.9f
+    };
+    
+    return [CCColor colorWithCcColor4f:markerColor];
 }
 
 @end

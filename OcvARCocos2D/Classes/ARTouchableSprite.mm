@@ -11,6 +11,8 @@
 
 #import "ARTouchableSprite.h"
 
+static ccColor4F markedColor { 1.0f, 0.0f, 0.0f, 0.9f };
+
 @implementation ARTouchableSprite
 
 #pragma mark user interaction
@@ -29,10 +31,10 @@
     // change the color on a successful hit
     if (hit) {
         if (!_defaultColor) {
-            _defaultColor = [CCColor colorWithCcColor3b:self.color.ccColor3b];
-            [self setColor:[CCColor redColor]];
+            _defaultColor = [CCColor colorWithCcColor4f:self.color.ccColor4f];
+            [self setColor:[CCColor colorWithCcColor4f:markedColor]];
         } else {
-            [self setColor:[CCColor colorWithCcColor3b:_defaultColor.ccColor3b]];
+            [self setColor:[CCColor colorWithCcColor4f:_defaultColor.ccColor4f]];
             _defaultColor = nil;
         }
     } else {

@@ -101,8 +101,8 @@ static CGRect _correctedGLViewFrameUnits;
         int machineModelVersion = 0;
         if ([machineInfoShort isEqualToString:@"ipad2"]) {
             machineModelVersion = 2;
-        } else if ([machineInfoShort isEqualToString:@"ipad3"]) {
-            machineModelVersion = 3;
+        } else if ([machineInfoShort isEqualToString:@"ipad3"] || [machineInfoShort isEqualToString:@"ipad4"]) {
+            machineModelVersion = 3;    // works for ipad 3 & 4
         } else {
             NSLog(@"RootViewController: no camera intrinsics available for this model!");
             machineModelVersion = 2;    // default. might not work!
@@ -351,11 +351,40 @@ static CGRect _correctedGLViewFrameUnits;
     _useDistCoeff = USE_DIST_COEFF;
     
     // create the detector
-    _detector = new ocv_ar::Detect(ocv_ar::IDENT_TYPE_CODE_7X7,  // marker type
+    _detector = new ocv_ar::Detect(ocv_ar::IDENT_TYPE_TEMPL_MATCH,  // marker type
                                    MARKER_REAL_SIZE_M,           // real marker size in meters
                                    PROJ_FLIP_MODE);              // projection flip mode
     // create the tracker and pass it a reference to the detector object
     _tracker = new ocv_ar::Track(_detector);
+    
+    // set the marker templates
+    ocv_ar::IdentificatorTemplMatch *templMatcher = (ocv_ar::IdentificatorTemplMatch *)_detector->getIdentificator();
+    
+    NSString *pathToMarkerImgs = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"markerimgs"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir;
+    if ([fileManager fileExistsAtPath:pathToMarkerImgs isDirectory:&isDir] && isDir) {
+        NSArray *markerImgFiles = [fileManager contentsOfDirectoryAtPath:pathToMarkerImgs error:nil];
+        
+        int markerNum = 1;
+        for (NSString *markerImgFile in markerImgFiles) {
+            NSLog(@"ARCtrl: loading marker image file: %@", markerImgFile);
+            
+            NSString *markerImgFileFullPath = [pathToMarkerImgs stringByAppendingPathComponent:markerImgFile];
+            UIImage *markerUIImg = [UIImage imageWithContentsOfFile:markerImgFileFullPath];
+            NSAssert(markerUIImg != NULL, @"failed loading marker image");
+            
+            cv::Mat *markerCvImg = [Tools cvMatFromImage:markerUIImg gray:YES];
+            NSAssert(markerCvImg != NULL, @"failed converting marker image to cv::Mat");
+            
+            templMatcher->addTemplateImg(markerNum++, *markerCvImg, true);
+            
+            delete markerCvImg;
+        }
+    } else {
+        NSLog(@"ARCtrl: marker images could not be loaded from path %@", pathToMarkerImgs);
+    }
+    
     
     // load the camera intrinsics
     cv::FileStorage fs;

@@ -74,10 +74,51 @@
     CGColorSpaceRelease(colorSpace);
     
     return finalImage;
-    
 }
 
-+ (NSString *)deviceModel {
++ (cv::Mat *)cvMatFromImage:(const UIImage *)img gray:(BOOL)gray {
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace(img.CGImage);
+    
+    const int w = [img size].width;
+    const int h = [img size].height;
+    
+    // create cv::Mat
+    cv::Mat *mat = new cv::Mat(h, w, CV_8UC4);
+    
+    // create context
+    CGContextRef contextRef = CGBitmapContextCreate(mat->ptr(),
+                                                    w, h,
+                                                    8,
+                                                    mat->step[0],
+                                                    colorSpace,
+                                                    kCGImageAlphaNoneSkipLast |
+                                                    kCGBitmapByteOrderDefault);
+    
+    if (!contextRef) {
+        delete mat;
+        
+        return NULL;
+    }
+    
+    // draw the image in the context
+    CGContextDrawImage(contextRef, CGRectMake(0, 0, w, h), img.CGImage);
+    
+    CGContextRelease(contextRef);
+    //    CGColorSpaceRelease(colorSpace);  // "colorSpace" is not owned, only referenced
+    
+    // convert to grayscale data if necessary
+    if (gray) {
+        cv::Mat *grayMat = new cv::Mat(h, w, CV_8UC1);
+        cv::cvtColor(*mat, *grayMat, CV_RGBA2GRAY);
+        delete mat;
+        
+        return grayMat;
+    }
+    
+    return mat;
+}
+
++ (NSString *)deviceModelID {
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *machineInfo = [[NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding] lowercaseString];
@@ -86,9 +127,32 @@
 }
 
 + (NSString *)deviceModelShort {
-    NSString *m = [Tools deviceModel];
-    NSRange r = [m rangeOfString:@","];
-    return [[m substringToIndex:r.location] lowercaseString];
+    NSString *m = [Tools deviceModelID];
+    
+    NSArray *splitModel = [m componentsSeparatedByString:@","];
+    
+    if ([splitModel count] < 2) {
+        return m; // default
+    }
+    
+    NSString *modelStr = @"ipad";
+    NSString *majNumStr = [[splitModel objectAtIndex:0] substringFromIndex:4];
+    NSString *minNumStr = [splitModel objectAtIndex:1];
+    
+    int majNum = atoi([majNumStr cStringUsingEncoding:NSASCIIStringEncoding]);
+    int minNum = atoi([minNumStr cStringUsingEncoding:NSASCIIStringEncoding]);
+    
+    if (majNum == 2) {
+        return [modelStr stringByAppendingString:@"2"];
+    } else if (majNum == 3 && minNum < 4) {
+        return [modelStr stringByAppendingString:@"3"];
+    } else if (majNum == 3 && minNum >= 4) {
+        return [modelStr stringByAppendingString:@"4"];
+    } else if (majNum == 4 && minNum < 4) {
+        return [modelStr stringByAppendingString:@"-air"];
+    } else {
+        return nil;
+    }
 }
 
 

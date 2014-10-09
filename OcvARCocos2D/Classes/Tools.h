@@ -29,13 +29,18 @@
  */
 + (UIImage *)imageFromCvMat:(const cv::Mat *)mat;
 
-/**
- * Get the full device name such as "ipad2,1".
- */
-+ (NSString *)deviceModel;
+// get a cvMat image from an UIImage
++ (cv::Mat *)cvMatFromImage:(const UIImage *)img gray:(BOOL)gray;
 
 /**
- * Get the short device name such as "ipad2".
+ * Get the full device name id such as "ipad2,1".
+ */
++ (NSString *)deviceModelID;
+
+/**
+ * Get the short device name: ipad, ipad2, ipad3, ipad4 or ipad-air.
+ * Codes taken from https://theiphonewiki.com/wiki/IPad
+ * *Note:* Only works with ipad models!
  */
 + (NSString *)deviceModelShort;
 
